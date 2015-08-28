@@ -35,9 +35,9 @@ contactsApp.controller("ShowController",
 contactsApp.controller("EditController",
   ['$scope', "$routeParams", "$location", "Contact",
   function($scope, $routeParams, $location, Contact) {
-    $scope.editContact = function() {
-      var contact = new Contact($scope.contact);
-      contact.$update({id: $routeParams.id}).then(function() {
+    $scope.contact = Contact.get({id: $routeParams.id});
+    $scope.updateContact = function() {
+      $scope.contact.$update({id: $routeParams.id}).then(function() {
         $location.path('/');
       });
     };
