@@ -1,0 +1,33 @@
+<h1>Contacts App</h1>
+<label for="name">Name:</label>
+<input type="text" name="name" id="name" ng-model="contact.name" autofocus>
+<label for="email">Email:</label>
+<input type="text" name="email" id="email" ng-model="contact.email">
+<label for="phone">Phone Number: </label>
+<input type="text" name="phone" id="phone" ng-model="contact.phone">
+<input type="submit" value="Create New Contact" ng-click="createContact()">
+<div>
+  <label for="query">Search:</label>
+  <input type="text" name="query" id="query" ng-model="query">
+</div>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone Number</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="contact in contactData | filter: query track by $index">
+      <!-- <td ng-repeat="value in contact"><a ng-href="#/{{contactData.indexOf(contact)}}">{{value}}</a></td> -->
+      <td><a href="#/contacts/{{contact.id}}">{{contact.name}}</a></td>
+      <td>{{contact.email}}</td>
+      <td>{{contact.phone}}</td>
+      <td><a ng-href="#/contacts/{{contact.id}}/edit">Edit</a></td>
+      <td><a ng-click="deleteContact(contact.id)">Delete</a></td>
+
+    </tr>
+  </tbody>
+</table>
