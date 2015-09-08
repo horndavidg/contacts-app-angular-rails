@@ -5,7 +5,10 @@ contactsApp.config(['$httpProvider', function($httpProvider) {
     $('meta[name=csrf-token]').attr('content');
 }]);
 
-contactsApp.config(["$routeProvider", function($routeProvider) {
+contactsApp.config(["$routeProvider", "$locationProvider", function($routeProvider, $locationProvider) {
+   
+$locationProvider.html5Mode(true);
+
     $routeProvider
       .when('/', {
         templateUrl: 'partials/home.html',

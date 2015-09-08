@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :update, :destroy]
-
+  before_action :html_layout
+  
   # GET /contacts
   def index
     @contacts = Contact.all

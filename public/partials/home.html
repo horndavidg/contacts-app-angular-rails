@@ -1,3 +1,5 @@
+
+
 <h1>Contacts App</h1>
 <label for="name">Name:</label>
 <input type="text" name="name" id="name" ng-model="contact.name" autofocus>
@@ -22,10 +24,10 @@
   <tbody>
     <tr ng-repeat="contact in contactData | filter: query track by $index">
       <!-- <td ng-repeat="value in contact"><a ng-href="#/{{contactData.indexOf(contact)}}">{{value}}</a></td> -->
-      <td><a href="#/contacts/{{contact.id}}">{{contact.name}}</a></td>
+      <td><a ng-href="/contacts/{{contact.id}}">{{contact.name}}</a></td>
       <td>{{contact.email}}</td>
       <td>{{contact.phone}}</td>
-      <td><a ng-href="#/contacts/{{contact.id}}/edit">Edit</a></td>
+      <td><a ng-href="contacts/{{contact.id}}/edit">Edit</a></td>
       <td><a ng-click="deleteContact(contact.id)">Delete</a></td>
 
     </tr>

@@ -9,6 +9,7 @@ contactsApp.controller("ContactsController",
 
     $scope.createContact = function(){
       var contact = new Contact($scope.contact);
+      // console.log(contact);
       contact.$save().then(function() {
         $scope.contactData.push(contact);
         $scope.contact.name = "";
